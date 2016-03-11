@@ -17,6 +17,16 @@
 		44038BF21C92767000ADD412 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44038BF01C92767000ADD412 /* LaunchScreen.storyboard */; };
 		44038BFD1C92767000ADD412 /* EyeballTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 44038BFC1C92767000ADD412 /* EyeballTests.m */; };
 		44038C081C92767000ADD412 /* EyeballUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 44038C071C92767000ADD412 /* EyeballUITests.m */; };
+		44038C171C9277E900ADD412 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 44038C161C9277E900ADD412 /* Constants.m */; };
+		44038C1A1C92FE1100ADD412 /* Circle.m in Sources */ = {isa = PBXBuildFile; fileRef = 44038C191C92FE1100ADD412 /* Circle.m */; };
+		44038C1D1C9317AC00ADD412 /* RightAngle.m in Sources */ = {isa = PBXBuildFile; fileRef = 44038C1C1C9317AC00ADD412 /* RightAngle.m */; };
+		44038C201C9317C100ADD412 /* BisectAngle.m in Sources */ = {isa = PBXBuildFile; fileRef = 44038C1F1C9317C100ADD412 /* BisectAngle.m */; };
+		44038C231C9317D900ADD412 /* Parallelogram.m in Sources */ = {isa = PBXBuildFile; fileRef = 44038C221C9317D900ADD412 /* Parallelogram.m */; };
+		44038C261C9317FB00ADD412 /* Convergence.m in Sources */ = {isa = PBXBuildFile; fileRef = 44038C251C9317FB00ADD412 /* Convergence.m */; };
+		44038C291C93183700ADD412 /* LineMidpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 44038C281C93183700ADD412 /* LineMidpoint.m */; };
+		44038C2C1C93184300ADD412 /* TriangleCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 44038C2B1C93184300ADD412 /* TriangleCenter.m */; };
+		44038C2F1C93413600ADD412 /* Cursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 44038C2E1C93413600ADD412 /* Cursor.m */; };
+		44038C321C9352FD00ADD412 /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = 44038C311C9352FD00ADD412 /* Level.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +66,26 @@
 		44038C031C92767000ADD412 /* EyeballUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EyeballUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		44038C071C92767000ADD412 /* EyeballUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EyeballUITests.m; sourceTree = "<group>"; };
 		44038C091C92767000ADD412 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44038C151C9277E200ADD412 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		44038C161C9277E900ADD412 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		44038C181C92FE0800ADD412 /* Circle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Circle.h; sourceTree = "<group>"; };
+		44038C191C92FE1100ADD412 /* Circle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Circle.m; sourceTree = "<group>"; };
+		44038C1B1C9317A300ADD412 /* RightAngle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RightAngle.h; sourceTree = "<group>"; };
+		44038C1C1C9317AC00ADD412 /* RightAngle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightAngle.m; sourceTree = "<group>"; };
+		44038C1E1C9317B900ADD412 /* BisectAngle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BisectAngle.h; sourceTree = "<group>"; };
+		44038C1F1C9317C100ADD412 /* BisectAngle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BisectAngle.m; sourceTree = "<group>"; };
+		44038C211C9317D000ADD412 /* Parallelogram.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Parallelogram.h; sourceTree = "<group>"; };
+		44038C221C9317D900ADD412 /* Parallelogram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parallelogram.m; sourceTree = "<group>"; };
+		44038C241C9317F400ADD412 /* Convergence.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Convergence.h; sourceTree = "<group>"; };
+		44038C251C9317FB00ADD412 /* Convergence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Convergence.m; sourceTree = "<group>"; };
+		44038C271C93183000ADD412 /* LineMidpoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LineMidpoint.h; sourceTree = "<group>"; };
+		44038C281C93183700ADD412 /* LineMidpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineMidpoint.m; sourceTree = "<group>"; };
+		44038C2A1C93183D00ADD412 /* TriangleCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TriangleCenter.h; sourceTree = "<group>"; };
+		44038C2B1C93184300ADD412 /* TriangleCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriangleCenter.m; sourceTree = "<group>"; };
+		44038C2D1C93412B00ADD412 /* Cursor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cursor.h; sourceTree = "<group>"; };
+		44038C2E1C93413600ADD412 /* Cursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cursor.m; sourceTree = "<group>"; };
+		44038C301C9352F300ADD412 /* Level.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
+		44038C311C9352FD00ADD412 /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +122,7 @@
 				44038BDB1C92767000ADD412 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 1;
 		};
 		44038BDB1C92767000ADD412 /* Products */ = {
 			isa = PBXGroup;
@@ -106,15 +137,35 @@
 		44038BDC1C92767000ADD412 /* Eyeball */ = {
 			isa = PBXGroup;
 			children = (
-				44038BE01C92767000ADD412 /* AppDelegate.h */,
-				44038BE11C92767000ADD412 /* AppDelegate.m */,
 				44038BE31C92767000ADD412 /* GameScene.h */,
 				44038BE41C92767000ADD412 /* GameScene.m */,
-				44038BE61C92767000ADD412 /* GameScene.sks */,
+				44038C2D1C93412B00ADD412 /* Cursor.h */,
+				44038C2E1C93413600ADD412 /* Cursor.m */,
+				44038C211C9317D000ADD412 /* Parallelogram.h */,
+				44038C221C9317D900ADD412 /* Parallelogram.m */,
+				44038C271C93183000ADD412 /* LineMidpoint.h */,
+				44038C281C93183700ADD412 /* LineMidpoint.m */,
+				44038C1E1C9317B900ADD412 /* BisectAngle.h */,
+				44038C1F1C9317C100ADD412 /* BisectAngle.m */,
+				44038C2A1C93183D00ADD412 /* TriangleCenter.h */,
+				44038C2B1C93184300ADD412 /* TriangleCenter.m */,
+				44038C181C92FE0800ADD412 /* Circle.h */,
+				44038C191C92FE1100ADD412 /* Circle.m */,
+				44038C1B1C9317A300ADD412 /* RightAngle.h */,
+				44038C1C1C9317AC00ADD412 /* RightAngle.m */,
+				44038C241C9317F400ADD412 /* Convergence.h */,
+				44038C251C9317FB00ADD412 /* Convergence.m */,
+				44038C301C9352F300ADD412 /* Level.h */,
+				44038C311C9352FD00ADD412 /* Level.m */,
+				44038C151C9277E200ADD412 /* Constants.h */,
+				44038C161C9277E900ADD412 /* Constants.m */,
 				44038BE81C92767000ADD412 /* GameViewController.h */,
 				44038BE91C92767000ADD412 /* GameViewController.m */,
-				44038BEB1C92767000ADD412 /* Main.storyboard */,
 				44038BEE1C92767000ADD412 /* Assets.xcassets */,
+				44038BE01C92767000ADD412 /* AppDelegate.h */,
+				44038BE11C92767000ADD412 /* AppDelegate.m */,
+				44038BE61C92767000ADD412 /* GameScene.sks */,
+				44038BEB1C92767000ADD412 /* Main.storyboard */,
 				44038BF01C92767000ADD412 /* LaunchScreen.storyboard */,
 				44038BF31C92767000ADD412 /* Info.plist */,
 				44038BDD1C92767000ADD412 /* Supporting Files */,
@@ -215,6 +266,7 @@
 				TargetAttributes = {
 					44038BD91C92767000ADD412 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 269X336YZ3;
 					};
 					44038BF71C92767000ADD412 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -279,9 +331,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44038C171C9277E900ADD412 /* Constants.m in Sources */,
+				44038C261C9317FB00ADD412 /* Convergence.m in Sources */,
+				44038C2C1C93184300ADD412 /* TriangleCenter.m in Sources */,
+				44038C201C9317C100ADD412 /* BisectAngle.m in Sources */,
 				44038BEA1C92767000ADD412 /* GameViewController.m in Sources */,
 				44038BE21C92767000ADD412 /* AppDelegate.m in Sources */,
+				44038C1D1C9317AC00ADD412 /* RightAngle.m in Sources */,
+				44038C291C93183700ADD412 /* LineMidpoint.m in Sources */,
+				44038C231C9317D900ADD412 /* Parallelogram.m in Sources */,
+				44038C1A1C92FE1100ADD412 /* Circle.m in Sources */,
+				44038C2F1C93413600ADD412 /* Cursor.m in Sources */,
 				44038BE51C92767000ADD412 /* GameScene.m in Sources */,
+				44038C321C9352FD00ADD412 /* Level.m in Sources */,
 				44038BDF1C92767000ADD412 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,6 +483,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Eyeball/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.cmilby.Eyeball;
@@ -432,6 +495,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Eyeball/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.cmilby.Eyeball;

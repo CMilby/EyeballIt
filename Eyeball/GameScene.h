@@ -8,6 +8,9 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-@interface GameScene : SKScene
+@interface GameScene : SKScene {
+	CGPoint m_firstTouch;
+	CGPoint m_oldLoc;
+}
 
 @end
