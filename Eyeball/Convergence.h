@@ -16,7 +16,14 @@
 #import "Level.h"
 
 @interface Convergence : Level {
+	SKShapeNode *m_shape;
+	SKShapeNode *m_actualShape;
 	
+	SKShapeNode *m_line1;
+	SKShapeNode *m_line2;
+	SKShapeNode *m_line3;
+	
+	CGPoint m_base;
 }
 
 - ( id ) init;

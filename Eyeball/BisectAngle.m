@@ -17,34 +17,25 @@
 		CGFloat width = [ UIScreen mainScreen ].bounds.size.width;
 		CGFloat height = [ UIScreen mainScreen ].bounds.size.height;
 		
-		m_l1 = CGPointMake( [ self randomFloatInRange: width * 0.4f max: width * 0.6f ], [ self randomFloatInRange: height * 0.35f max: height * 0.45f ] );
-		m_l2 = CGPointMake( [ self randomFloatInRange: width * 0.4f max: width * 0.6f ], [ self randomFloatInRange: height * 0.55f max: height * 0.65f ] );
-		m_base = [ self midpoint: m_l1 p2: m_l2 ];
+		CGFloat minAngle = [ self randomFloatInRange: 0.0f max: 150.0f ];
+		CGFloat maxAngle = [ self randomFloatInRange: minAngle + 30 max: 320.0f ];
 		
-		CGFloat l1d = [ self distance: m_base p2: m_l1 ];
-		CGFloat l2d = [ self distance: m_base p2: m_l2 ];
-		NSLog( @"%f, %f", l1d, l2d );
+		m_base = CGPointMake( width / 2, height / 2 );
 		
-		m_angle = [ self angleOf: m_l1 p2: m_l2 ];
-		CGFloat offset = 1;
-		NSLog( @"%f", m_angle );
+		CGFloat offset = width * 0.35f;
 		
-		CGFloat angle = m_angle + 90.0f;
-		if ( angle >= 360.0f ) {
-			angle = angle - 360.0f;
+		m_l1 = [ self rotate: m_base angle: minAngle point: CGPointMake( m_base.x, m_base.y + offset ) ];
+		m_l2 = [ self rotate: m_base angle: maxAngle point: CGPointMake( m_base.x, m_base.y + offset ) ];
+		
+		m_angle = ( maxAngle - minAngle ) / 2.0f;
+		m_angle += minAngle;
+		
+		if ( maxAngle - minAngle > 180.0f ) {
+			m_angle = m_angle - 180;
 		}
 		
-		CGFloat c = cosf( ( angle + 90.0f ) * ( M_PI / 180.0f ) );
-		CGFloat s = sinf( ( angle + 90.0f ) * ( M_PI / 180.0f ) );
-		c = c * ( 180.0f / M_PI );
-		s = s * ( 180.0f / M_PI );
-		
-		m_base = CGPointMake( m_base.x + c * offset, m_base.y + s * offset );
-		m_point = CGPointMake( m_base.x + [ self randomIntInRange: -20 max: 20 ], m_base.y + [ self randomIntInRange: -20 max: 20 ] );
-		
-		l1d = [ self distance: m_base p2: m_l1 ];
-		l2d = [ self distance: m_base p2: m_l2 ];
-		NSLog( @"%f, %f", l1d, l2d );
+		m_actual = [ self rotate: m_base angle: m_angle point: CGPointMake( m_base.x, m_base.y + offset ) ];
+		m_point = CGPointMake( m_actual.x + [ self randomIntInRange: -20 max: 20 ], m_actual.y + [ self randomIntInRange: -20 max: 20 ] );
 		
 		m_shape = [ [ SKShapeNode alloc ] init ];
 		CGMutablePathRef path = CGPathCreateMutable();
@@ -64,6 +55,14 @@
 		m_line.lineWidth = 2.0f;
 		m_line.strokeColor = [ SKColor whiteColor ];
 		[ self addChild: m_line ];
+		
+		m_actualLine = [ [ SKShapeNode alloc ] init ];
+		path = CGPathCreateMutable();
+		CGPathMoveToPoint( path, NULL, m_base.x, m_base.y );
+		CGPathAddLineToPoint( path, NULL, m_actual.x, m_actual.y );
+		m_actualLine.path = path;
+		m_actualLine.lineWidth = 2.0f;
+		m_actualLine.strokeColor = [ SKColor grayColor ];
 	}
 	return self;
 }
@@ -75,6 +74,14 @@
 	CGPathMoveToPoint( path, NULL, m_base.x, m_base.y );
 	CGPathAddLineToPoint( path, NULL, m_point.x, m_point.y );
 	m_line.path = path;
+}
+
+- ( void ) showActual {
+	[ self addChild: m_actualLine ];
+}
+
+- ( CGFloat ) errorMargin {
+	return fabs( [ self angleOf: m_point p2: m_base ] - [ self angleOf: m_actual p2: m_base ] );
 }
 
 @end

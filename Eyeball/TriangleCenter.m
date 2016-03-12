@@ -36,8 +36,15 @@
 		m_shape.lineWidth = 2.0f;
 		m_shape.strokeColor = [ SKColor whiteColor ];
 		[ self addChild: m_shape ];
+		
+		m_cursor.position = m_actual;
+		[ m_cursor setColor: [ SKColor grayColor ] ];
 	}
 	return self;
+}
+
+- ( void ) showActual {
+	[ self addChild: m_cursor ];
 }
 
 @end

@@ -41,7 +41,7 @@
 		m_timeTaken.fontSize = height * FONT_SIZE;
 		m_timeTaken.fontColor = [ SKColor blackColor ];
 		
-		m_currentLevel = 1;
+		m_currentLevel = 2;
 		m_levels = [ [ NSMutableArray alloc ] initWithCapacity: 7 ];
 		[ m_levels addObject: [ [ Parrallogram alloc ] init ] ];
 		[ m_levels addObject: [ [ LineMidpoint alloc ] init ] ];

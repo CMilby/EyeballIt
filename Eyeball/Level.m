@@ -48,13 +48,13 @@
 }
 
 - ( CGPoint ) rotate: ( CGPoint ) center angle: ( CGFloat ) angle point: ( CGPoint ) point {
-	CGFloat s = sinf( angle );
-	CGFloat c = cosf( angle );
+	CGFloat s = ( sinf( angle * ( M_PI / 180.0f ) ) );
+	CGFloat c = ( cosf( angle * ( M_PI / 180.0f ) ) );
 	
-	point = CGPointMake( point.x - center.x, point.y - center.y );
+	CGPoint newPoint = CGPointMake( point.x - center.x, point.y - center.y );
 	
-	CGFloat xNew = point.x * c - point.y * s;
-	CGFloat yNew = point.x * s + point.y * c;
+	CGFloat xNew = newPoint.x * c - newPoint.y * s;
+	CGFloat yNew = newPoint.x * s + newPoint.y * c;
 	
 	return CGPointMake( xNew + center.x, yNew + center.y );
 }
