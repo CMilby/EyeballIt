@@ -22,6 +22,7 @@
 	SKLabelNode *m_averageError;
 	SKLabelNode *m_timeTaken;
 	
+	BOOL m_done;
 	Cursor *m_cursor;
 	
 	NSMutableArray<Level*> *m_levels;
@@ -41,7 +42,7 @@
 		m_timeTaken.fontSize = height * FONT_SIZE;
 		m_timeTaken.fontColor = [ SKColor blackColor ];
 		
-		m_currentLevel = 2;
+		m_currentLevel = 0;
 		m_levels = [ [ NSMutableArray alloc ] initWithCapacity: 7 ];
 		[ m_levels addObject: [ [ Parrallogram alloc ] init ] ];
 		[ m_levels addObject: [ [ LineMidpoint alloc ] init ] ];
@@ -56,6 +57,8 @@
 		m_cursor = [ [ Cursor alloc ] init ];
 		m_cursor.position = [ [ m_levels objectAtIndex: m_currentLevel ] point ];
 		[ self addChild: m_cursor ];
+		
+		m_done = false;
 	}
 	return self;
 }
@@ -63,15 +66,37 @@
 - ( void ) didMoveToView: ( SKView* ) view {
 	UIPanGestureRecognizer *panGesture = [ [ UIPanGestureRecognizer alloc ] initWithTarget: self action: @selector( handlePan: ) ];
 	[ view addGestureRecognizer: panGesture ];
+	
+	UITapGestureRecognizer *tapGesture = [ [ UITapGestureRecognizer alloc ] initWithTarget: self action: @selector( handleTap: ) ];
+	[ tapGesture requireGestureRecognizerToFail: panGesture ];
+	[ view addGestureRecognizer: tapGesture ];
+}
+
+- ( void ) handleTap: ( UITapGestureRecognizer* ) sender {
+	if ( !m_done ) {
+		return;
+	}
+	
+	m_done = false;
+	[ [ m_levels objectAtIndex: m_currentLevel ] removeFromParent ];
+	m_currentLevel++;
+	[ m_cursor setPosition: [ [ m_levels objectAtIndex: m_currentLevel ] point ] ];
+	[ self addChild: [ m_levels objectAtIndex: m_currentLevel ] ];
 }
 
 - ( void ) handlePan: ( UIPanGestureRecognizer* ) sender {
+	if ( m_done ){
+		return;
+	}
+	
 	CGPoint location = [ sender locationInView: self.view ];
 	location = CGPointMake( location.x, fabs( [ UIScreen mainScreen ].bounds.size.height - location.y ) );
 	// location = CGPointMake( location.x / 2, location.y / 2 );
 	
 	if ( sender.state == UIGestureRecognizerStateEnded ) {
+		// Level *level = [ m_levels objectAtIndex: m_currentLevel ];
 		[ [ m_levels objectAtIndex: m_currentLevel ] showActual ];
+		m_done = true;
 	} else if ( sender.state == UIGestureRecognizerStateBegan ) {
 		m_firstTouch = CGPointMake( location.x, location.y );
 		m_oldLoc = m_cursor.position;

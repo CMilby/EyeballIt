@@ -24,7 +24,7 @@
 		CGFloat xActual = ( m_p1.x + m_p2.x + m_p3.x ) / 3.0f;
 		CGFloat yActual = ( m_p1.y + m_p2.y + m_p3.y ) / 3.0f;
 		m_actual = CGPointMake( xActual, yActual );
-		m_point = CGPointMake( m_actual.x + [ self randomIntInRange: -30 max: 30 ], m_actual.y + [ self randomIntInRange: -30 max: 30 ] );
+		m_point = CGPointMake( m_actual.x + [ self randomIntInRange: -50 max: 50 ], m_actual.y + [ self randomIntInRange: -50 max: 50 ] );
 		
 		m_shape = [ [ SKShapeNode alloc ] init ];
 		CGMutablePathRef path = CGPathCreateMutable();

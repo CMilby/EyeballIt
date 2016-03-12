@@ -70,4 +70,35 @@
 	return ( result < 0.0f ) ? ( 360.0f + result ) : result;
 }
 
+- ( CGPoint ) linesIntersect: ( CGPoint ) p1 p2: ( CGPoint ) p2 p3: ( CGPoint ) p3 p4: ( CGPoint ) p4 {
+	CGFloat d = ( p2.x - p1.x ) * ( p4.y - p3.y ) - ( p2.y - p1.y ) * ( p4.x - p3.x );
+	if ( d == 0 ) {
+		return CGPointMake( -1.0f, -1.0f );
+	}
+	
+	CGFloat u = ( ( p3.x - p1.x ) * ( p4.y - p3.y ) - ( p3.y - p1.y ) * ( p4.x - p3.x ) ) / d;
+	CGFloat v = ( ( p3.x - p1.x ) * ( p2.y - p1.y ) - ( p3.y - p1.y ) * ( p2.x - p1.x ) ) /d;
+	if (u < 0.0 || u > 1.0)
+		return CGPointMake( -1.0f, -1.0f );
+	if (v < 0.0 || v > 1.0)
+		return CGPointMake( -1.0f, -1.0f );
+	CGPoint intersection;
+	intersection.x = p1.x + u * ( p2.x - p1.x );
+	intersection.y = p1.y + u * ( p2.y - p1.y );
+	
+	return intersection;
+}
+
+- ( CGFloat ) angle: ( CGPoint ) p1 p2: ( CGPoint ) p2 p3: ( CGPoint ) p3 {
+	CGFloat p12 = [ self distance: p1 p2: p2 ];
+	CGFloat p13 = [ self distance: p1 p2: p3 ];
+	CGFloat p23 = [ self distance: p3 p2: p2 ];
+	
+	CGFloat a = powf( p12, 2.0f ) + powf( p13, 2.0f ) + powf( p23, 2.0f );
+	CGFloat b = 2 * p12 * p13;
+	CGFloat c = a / b;
+	CGFloat d = acos( c * ( M_PI / 180.0f ) );
+	return d * ( 180.0f / M_PI );
+}
+
 @end

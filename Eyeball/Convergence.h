@@ -24,6 +24,9 @@
 	SKShapeNode *m_line3;
 	
 	CGPoint m_base;
+	CGPoint m_line1Start;
+	CGPoint m_line2Start;
+	CGPoint m_line3Start;
 }
 
 - ( id ) init;

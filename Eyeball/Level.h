@@ -43,6 +43,10 @@
 
 - ( CGFloat ) angleOf: ( CGPoint ) p1 p2: ( CGPoint ) p2;
 
+- ( CGPoint ) linesIntersect: ( CGPoint ) p1 p2: ( CGPoint ) p2 p3: ( CGPoint ) p3 p4: ( CGPoint ) p4;
+
+- ( CGFloat ) angle: ( CGPoint ) p1 p2: ( CGPoint ) p2 p3: ( CGPoint ) p3;
+
 @end
 
 #endif /* Level_h */

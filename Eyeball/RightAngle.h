@@ -15,7 +15,12 @@
 #import "Level.h"
 
 @interface RightAngle : Level {
+	CGPoint m_base;
+	CGPoint m_angle;
 	
+	SKShapeNode *m_shape;
+	SKShapeNode *m_line;
+	SKShapeNode *m_actualShape;
 }
 
 - ( id ) init;

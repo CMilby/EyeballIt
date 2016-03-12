@@ -35,7 +35,7 @@
 		}
 		
 		m_actual = [ self rotate: m_base angle: m_angle point: CGPointMake( m_base.x, m_base.y + offset ) ];
-		m_point = CGPointMake( m_actual.x + [ self randomIntInRange: -20 max: 20 ], m_actual.y + [ self randomIntInRange: -20 max: 20 ] );
+		m_point = CGPointMake( m_actual.x + [ self randomIntInRange: -50 max: 50 ], m_actual.y + [ self randomIntInRange: -50 max: 50 ] );
 		
 		m_shape = [ [ SKShapeNode alloc ] init ];
 		CGMutablePathRef path = CGPathCreateMutable();
@@ -53,7 +53,7 @@
 		CGPathAddLineToPoint( path, NULL, m_point.x, m_point.y );
 		m_line.path = path;
 		m_line.lineWidth = 2.0f;
-		m_line.strokeColor = [ SKColor whiteColor ];
+		m_line.strokeColor = [ SKColor lightGrayColor ];
 		[ self addChild: m_line ];
 		
 		m_actualLine = [ [ SKShapeNode alloc ] init ];

@@ -15,7 +15,7 @@
 - ( id ) init {
 	if ( self = [ super init ] ) {
 		m_cursorFrame = [ SKShapeNode shapeNodeWithRect: CGRectMake( -10, -10, 20, 20 ) ];
-		m_cursorFrame.lineWidth = 2.0f;
+		m_cursorFrame.lineWidth = 1.0f;
 		m_cursorFrame.strokeColor =  [ SKColor whiteColor ];
 		[ self addChild: m_cursorFrame ];
 		
@@ -26,8 +26,8 @@
 		CGPathMoveToPoint( path, NULL, -5, 0 );
 		CGPathAddLineToPoint( path, NULL, 5, 0 );
 		m_crosshair.path = path;
-		m_crosshair.lineWidth = 2.0f;
-		m_crosshair.strokeColor = [ SKColor whiteColor ];
+		m_crosshair.lineWidth = 1.0f;
+		m_crosshair.strokeColor = [ SKColor lightGrayColor ];
 		[ self addChild: m_crosshair ];
 	}
 	return self;
