@@ -27,6 +27,7 @@
 		44038C2C1C93184300ADD412 /* TriangleCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 44038C2B1C93184300ADD412 /* TriangleCenter.m */; };
 		44038C2F1C93413600ADD412 /* Cursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 44038C2E1C93413600ADD412 /* Cursor.m */; };
 		44038C321C9352FD00ADD412 /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = 44038C311C9352FD00ADD412 /* Level.m */; };
+		441B58F51C964093009771A0 /* Stopwatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 441B58F41C964093009771A0 /* Stopwatch.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,8 @@
 		44038C2E1C93413600ADD412 /* Cursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cursor.m; sourceTree = "<group>"; };
 		44038C301C9352F300ADD412 /* Level.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
 		44038C311C9352FD00ADD412 /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level.m; sourceTree = "<group>"; };
+		441B58F31C96408D009771A0 /* Stopwatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Stopwatch.h; sourceTree = "<group>"; };
+		441B58F41C964093009771A0 /* Stopwatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stopwatch.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +160,8 @@
 				44038C251C9317FB00ADD412 /* Convergence.m */,
 				44038C301C9352F300ADD412 /* Level.h */,
 				44038C311C9352FD00ADD412 /* Level.m */,
+				441B58F31C96408D009771A0 /* Stopwatch.h */,
+				441B58F41C964093009771A0 /* Stopwatch.m */,
 				44038C151C9277E200ADD412 /* Constants.h */,
 				44038C161C9277E900ADD412 /* Constants.m */,
 				44038BE81C92767000ADD412 /* GameViewController.h */,
@@ -334,6 +339,7 @@
 				44038C171C9277E900ADD412 /* Constants.m in Sources */,
 				44038C261C9317FB00ADD412 /* Convergence.m in Sources */,
 				44038C2C1C93184300ADD412 /* TriangleCenter.m in Sources */,
+				441B58F51C964093009771A0 /* Stopwatch.m in Sources */,
 				44038C201C9317C100ADD412 /* BisectAngle.m in Sources */,
 				44038BEA1C92767000ADD412 /* GameViewController.m in Sources */,
 				44038BE21C92767000ADD412 /* AppDelegate.m in Sources */,
@@ -572,6 +578,7 @@
 				44038C0E1C92767000ADD412 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		44038C0F1C92767000ADD412 /* Build configuration list for PBXNativeTarget "EyeballTests" */ = {
 			isa = XCConfigurationList;
@@ -580,6 +587,7 @@
 				44038C111C92767000ADD412 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		44038C121C92767000ADD412 /* Build configuration list for PBXNativeTarget "EyeballUITests" */ = {
 			isa = XCConfigurationList;
@@ -588,6 +596,7 @@
 				44038C141C92767000ADD412 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

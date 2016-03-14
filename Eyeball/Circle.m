@@ -40,6 +40,8 @@
 		
 		m_cursor.position = m_actual;
 		[ m_cursor setColor: [ SKColor grayColor ] ];
+		
+		m_prompt.text = @"Find the circles center";
 	}
 	return self;
 }

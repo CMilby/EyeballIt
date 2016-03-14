@@ -19,8 +19,8 @@
 	[ super viewDidLayoutSubviews ];
 	
 	SKView *skView = (SKView* ) self.view;
-	skView.showsFPS = YES;
-	skView.showsNodeCount = YES;
+	// skView.showsFPS = YES;
+	// skView.showsNodeCount = YES;
 	skView.showsPhysics = YES;
 	skView.ignoresSiblingOrder = YES;
 	

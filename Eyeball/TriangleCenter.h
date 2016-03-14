@@ -9,9 +9,6 @@
 #ifndef __TRIANGLE_CENTER_H__
 #define __TRIANGLE_CENTER_H__
 
-#import <Foundation/Foundation.h>
-#import <SpriteKit/SpriteKit.h>
-
 #import "Level.h"
 
 @interface TriangleCenter : Level {

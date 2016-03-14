@@ -10,9 +10,6 @@
 #ifndef __CONVERGENCE_H__
 #define __CONVERGENCE_H__
 
-#import <Foundation/Foundation.h>
-#import <SpriteKit/SpriteKit.h>
-
 #import "Level.h"
 
 @interface Convergence : Level {

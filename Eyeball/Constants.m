@@ -10,4 +10,4 @@
 
 NSString* const GAME_FONT = @"Copperplate";
 
-CGFloat const FONT_SIZE = 0.05f;
+CGFloat const FONT_SIZE = 0.03f;

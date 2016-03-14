@@ -63,6 +63,8 @@
 		m_actualLine.path = path;
 		m_actualLine.lineWidth = 2.0f;
 		m_actualLine.strokeColor = [ SKColor grayColor ];
+		
+		m_prompt.text = @"Bisect the angle";
 	}
 	return self;
 }

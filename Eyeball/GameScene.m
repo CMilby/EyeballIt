@@ -21,6 +21,8 @@
 @implementation GameScene {
 	SKLabelNode *m_averageError;
 	SKLabelNode *m_timeTaken;
+	CGFloat m_avgError;
+	CGFloat m_time;
 	
 	BOOL m_done;
 	Cursor *m_cursor;
@@ -59,6 +61,23 @@
 		[ self addChild: m_cursor ];
 		
 		m_done = false;
+		
+		m_averageError = [ SKLabelNode labelNodeWithFontNamed: GAME_FONT ];
+		m_averageError.text = @"Average Error: 0.00";
+		m_averageError.color = [ SKColor whiteColor ];
+		m_averageError.fontSize = height * FONT_SIZE;
+		m_averageError.position = CGPointMake( width / 2, ( height * FONT_SIZE ) );
+		[ self addChild: m_averageError ];
+		
+		m_timeTaken = [ SKLabelNode labelNodeWithFontNamed: GAME_FONT ];
+		m_timeTaken.text = @"Time Taken: 0.00";
+		m_timeTaken.color = [ SKColor whiteColor ];
+		m_timeTaken.fontSize = height * FONT_SIZE;
+		m_timeTaken.position = CGPointMake( width / 2, ( ( height * FONT_SIZE ) * 2 ) );
+		[ self addChild: m_timeTaken ];
+		
+		m_avgError = 0.0f;
+		m_time = 0.0f;
 	}
 	return self;
 }
@@ -94,8 +113,9 @@
 	// location = CGPointMake( location.x / 2, location.y / 2 );
 	
 	if ( sender.state == UIGestureRecognizerStateEnded ) {
-		// Level *level = [ m_levels objectAtIndex: m_currentLevel ];
 		[ [ m_levels objectAtIndex: m_currentLevel ] showActual ];
+		m_avgError += [ [ m_levels objectAtIndex: m_currentLevel ] errorMargin ];
+		m_averageError.text = [ NSString stringWithFormat: @"Average Error: %.02f", m_avgError / ( m_currentLevel + 1 ) ];
 		m_done = true;
 	} else if ( sender.state == UIGestureRecognizerStateBegan ) {
 		m_firstTouch = CGPointMake( location.x, location.y );

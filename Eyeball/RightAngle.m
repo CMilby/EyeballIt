@@ -53,6 +53,8 @@
 		m_actualShape.lineWidth = 2.0f;
 		m_actualShape.strokeColor = [ SKColor grayColor ];
 		m_actualShape.zPosition = 2.0f;
+		
+		m_prompt.text = @"Make a right angle";
 	}
 	return self;
 }

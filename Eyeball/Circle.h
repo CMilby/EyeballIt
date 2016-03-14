@@ -9,9 +9,6 @@
 #ifndef __CIRCLE_H__
 #define __CIRCLE_H__
 
-#import <Foundation/Foundation.h>
-#import <SpriteKit/SpriteKit.h>
-
 #import "Level.h"
 
 @interface Circle : Level {

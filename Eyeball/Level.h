@@ -12,12 +12,14 @@
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
 
+#import "Constants.h"
 #import "Cursor.h"
 
 @interface Level : SKNode {
 	CGPoint m_point;
 	CGPoint m_actual;
 	
+	SKLabelNode *m_prompt;
 	Cursor *m_cursor;
 }
 

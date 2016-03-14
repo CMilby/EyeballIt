@@ -9,9 +9,6 @@
 #ifndef __BISECT_ANGLE_H__
 #define __BISECT_ANGLE_H__
 
-#import <Foundation/Foundation.h>
-#import <SpriteKit/SpriteKit.h>
-
 #import "Level.h"
 
 @interface BisectAngle : Level {

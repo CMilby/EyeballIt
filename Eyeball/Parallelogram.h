@@ -9,9 +9,6 @@
 #ifndef __PARALLELOGRAM_H__
 #define __PARALLELOGRAM_H__
 
-#import <Foundation/Foundation.h>
-#import <SpriteKit/SpriteKit.h>
-
 #import "Level.h"
 
 /*

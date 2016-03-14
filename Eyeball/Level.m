@@ -15,6 +15,13 @@
 - ( id ) init {
 	if ( self = [ super init ] ) {
 		m_cursor = [ [ Cursor alloc ] init ];
+		
+		m_prompt = [ SKLabelNode labelNodeWithFontNamed: GAME_FONT ];
+		m_prompt.text = @"Add your text here!";
+		m_prompt.fontSize = FONT_SIZE * [ UIScreen mainScreen ].bounds.size.height;
+		m_prompt.color = [ SKColor whiteColor ];
+		m_prompt.position = CGPointMake( [ UIScreen mainScreen ].bounds.size.width / 2, [ UIScreen mainScreen ].bounds.size.height - ( ( [ UIScreen mainScreen ].bounds.size.height * FONT_SIZE ) * 1.5f ) );
+		[ self addChild: m_prompt ];
 	}
 	return self;
 }

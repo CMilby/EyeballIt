@@ -9,9 +9,6 @@
 #ifndef __LINE_MIDPOINT_H__
 #define __LINE_MIDPOINT_H__
 
-#import <Foundation/Foundation.h>
-#import <SpriteKit/SpriteKit.h>
-
 #import "Level.h"
 
 @interface LineMidpoint : Level {
