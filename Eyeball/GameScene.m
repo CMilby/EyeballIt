@@ -37,7 +37,7 @@
 	int m_currentLevel;
 }
 
-- ( id ) initWithSize: ( CGSize ) size {
+- ( id ) initWithSize: ( CGSize ) size withBannerHeight: ( CGFloat ) bannerHeight {
 	if ( self = [ super initWithSize: size ] ) {
 		[ self setBackgroundColor: [ SKColor blackColor ] ];
 		
@@ -54,13 +54,13 @@
 		
 		m_currentLevel = 0;
 		m_levels = [ [ NSMutableArray alloc ] initWithCapacity: 7 ];
-		[ m_levels addObject: [ [ Parrallogram alloc ] init ] ];
-		[ m_levels addObject: [ [ LineMidpoint alloc ] init ] ];
-		[ m_levels addObject: [ [ BisectAngle alloc ] init ] ];
-		[ m_levels addObject: [ [ TriangleCenter alloc ] init ] ];
-		[ m_levels addObject: [ [ Circle alloc ] init ] ];
-		[ m_levels addObject: [ [ RightAngle alloc ] init ] ];
-		[ m_levels addObject: [ [ Convergence alloc ] init ] ];
+		[ m_levels addObject: [ [ Parrallogram alloc ] init: bannerHeight ] ];
+		[ m_levels addObject: [ [ LineMidpoint alloc ] init: bannerHeight ] ];
+		[ m_levels addObject: [ [ BisectAngle alloc ] init: bannerHeight ] ];
+		[ m_levels addObject: [ [ TriangleCenter alloc ] init: bannerHeight ] ];
+		[ m_levels addObject: [ [ Circle alloc ] init: bannerHeight ] ];
+		[ m_levels addObject: [ [ RightAngle alloc ] init: bannerHeight ] ];
+		[ m_levels addObject: [ [ Convergence alloc ] init: bannerHeight ] ];
 		
 		[ self addChild: [ m_levels objectAtIndex: m_currentLevel ] ];
 		

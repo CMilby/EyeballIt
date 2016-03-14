@@ -12,8 +12,8 @@
 	
 }
 
-- ( id ) init {
-	if ( self = [ super init ] ) {
+- ( id ) init: ( CGFloat ) height {
+	if ( self = [ super init: height ] ) {
 		[ self setName: @"LineMidpoint" ];
 		
 		CGFloat width = [ UIScreen mainScreen ].bounds.size.width;

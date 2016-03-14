@@ -17,7 +17,7 @@
 	SKShapeNode *m_shape;
 }
 
-- ( id ) init;
+- ( id ) init: ( CGFloat ) height;
 
 @end
 

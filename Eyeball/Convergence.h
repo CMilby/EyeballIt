@@ -26,7 +26,7 @@
 	CGPoint m_line3Start;
 }
 
-- ( id ) init;
+- ( id ) init: ( CGFloat ) height;
 
 @end
 

@@ -12,8 +12,8 @@
 	
 }
 
-- ( id ) init {
-	if ( self = [ super init ] ) {
+- ( id ) init: ( CGFloat ) height {
+	if ( self = [ super init: height ] ) {
 		CGFloat width = [ UIScreen mainScreen ].bounds.size.width;
 		CGFloat height = [ UIScreen mainScreen ].bounds.size.height;
 		CGFloat halfWidth = width / 2;

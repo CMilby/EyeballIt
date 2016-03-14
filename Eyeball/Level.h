@@ -23,7 +23,7 @@
 	Cursor *m_cursor;
 }
 
-- ( id ) init;
+- ( id ) init: ( CGFloat ) offset;
 
 - ( CGPoint ) point;
 

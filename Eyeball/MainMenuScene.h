@@ -15,7 +15,7 @@
 	
 }
 
-- ( id ) initWithSize: ( CGSize ) size;
+- ( id ) initWithSize: ( CGSize ) size withBannerHeight: ( CGFloat ) bannerHeight;
 
 @end
 

@@ -19,7 +19,7 @@
 	CGPoint m_p3;
 }
 
-- ( id ) init;
+- ( id ) init: ( CGFloat ) height;
 
 @end
 

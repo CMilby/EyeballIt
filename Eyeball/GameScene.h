@@ -13,4 +13,6 @@
 	CGPoint m_oldLoc;
 }
 
+- ( id ) initWithSize: ( CGSize ) size withBannerHeight: ( CGFloat ) bannerHeight;
+
 @end

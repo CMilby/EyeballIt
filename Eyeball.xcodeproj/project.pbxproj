@@ -29,6 +29,8 @@
 		44038C321C9352FD00ADD412 /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = 44038C311C9352FD00ADD412 /* Level.m */; };
 		441B58F51C964093009771A0 /* Stopwatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 441B58F41C964093009771A0 /* Stopwatch.m */; };
 		441B58F81C966B66009771A0 /* MainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 441B58F71C966B66009771A0 /* MainMenuScene.m */; };
+		441B58FA1C9724DB009771A0 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 441B58F91C9724DB009771A0 /* GameKit.framework */; };
+		441B58FD1C972F11009771A0 /* GameDoneScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 441B58FC1C972F11009771A0 /* GameDoneScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +94,9 @@
 		441B58F41C964093009771A0 /* Stopwatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stopwatch.m; sourceTree = "<group>"; };
 		441B58F61C966B59009771A0 /* MainMenuScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainMenuScene.h; sourceTree = "<group>"; };
 		441B58F71C966B66009771A0 /* MainMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuScene.m; sourceTree = "<group>"; };
+		441B58F91C9724DB009771A0 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		441B58FB1C972F09009771A0 /* GameDoneScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameDoneScene.h; sourceTree = "<group>"; };
+		441B58FC1C972F11009771A0 /* GameDoneScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameDoneScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				441B58FA1C9724DB009771A0 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +128,7 @@
 		44038BD11C92767000ADD412 = {
 			isa = PBXGroup;
 			children = (
+				441B58F91C9724DB009771A0 /* GameKit.framework */,
 				44038BDC1C92767000ADD412 /* Eyeball */,
 				44038BFB1C92767000ADD412 /* EyeballTests */,
 				44038C061C92767000ADD412 /* EyeballUITests */,
@@ -145,6 +152,8 @@
 			children = (
 				441B58F61C966B59009771A0 /* MainMenuScene.h */,
 				441B58F71C966B66009771A0 /* MainMenuScene.m */,
+				441B58FB1C972F09009771A0 /* GameDoneScene.h */,
+				441B58FC1C972F11009771A0 /* GameDoneScene.m */,
 				44038BE31C92767000ADD412 /* GameScene.h */,
 				44038BE41C92767000ADD412 /* GameScene.m */,
 				44038C2D1C93412B00ADD412 /* Cursor.h */,
@@ -277,6 +286,11 @@
 					44038BD91C92767000ADD412 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = 269X336YZ3;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+						};
 					};
 					44038BF71C92767000ADD412 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -356,6 +370,7 @@
 				44038C2F1C93413600ADD412 /* Cursor.m in Sources */,
 				44038BE51C92767000ADD412 /* GameScene.m in Sources */,
 				44038C321C9352FD00ADD412 /* Level.m in Sources */,
+				441B58FD1C972F11009771A0 /* GameDoneScene.m in Sources */,
 				44038BDF1C92767000ADD412 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,10 +511,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Eyeball/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.cmilby.Eyeball;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -508,10 +525,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Eyeball/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.cmilby.Eyeball;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
