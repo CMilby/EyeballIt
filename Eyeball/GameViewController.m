@@ -7,7 +7,7 @@
 //
 
 #import "GameViewController.h"
-#import "GameScene.h"
+#import "MainMenuScene.h"
 
 @implementation GameViewController
 
@@ -24,7 +24,7 @@
 	skView.showsPhysics = YES;
 	skView.ignoresSiblingOrder = YES;
 	
-	GameScene *scene = [ GameScene sceneWithSize: skView.bounds.size ];
+	MainMenuScene *scene = [ MainMenuScene sceneWithSize: skView.bounds.size ];
 	scene.scaleMode = SKSceneScaleModeAspectFill;
 	
 	[ skView presentScene:scene ];

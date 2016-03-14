@@ -48,6 +48,7 @@
 
 - ( void ) showActual {
 	[ self addChild: m_cursor ];
+	[ m_prompt removeFromParent ];
 }
 
 @end

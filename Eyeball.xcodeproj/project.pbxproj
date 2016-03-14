@@ -28,6 +28,7 @@
 		44038C2F1C93413600ADD412 /* Cursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 44038C2E1C93413600ADD412 /* Cursor.m */; };
 		44038C321C9352FD00ADD412 /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = 44038C311C9352FD00ADD412 /* Level.m */; };
 		441B58F51C964093009771A0 /* Stopwatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 441B58F41C964093009771A0 /* Stopwatch.m */; };
+		441B58F81C966B66009771A0 /* MainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 441B58F71C966B66009771A0 /* MainMenuScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,8 @@
 		44038C311C9352FD00ADD412 /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level.m; sourceTree = "<group>"; };
 		441B58F31C96408D009771A0 /* Stopwatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Stopwatch.h; sourceTree = "<group>"; };
 		441B58F41C964093009771A0 /* Stopwatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stopwatch.m; sourceTree = "<group>"; };
+		441B58F61C966B59009771A0 /* MainMenuScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainMenuScene.h; sourceTree = "<group>"; };
+		441B58F71C966B66009771A0 /* MainMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +143,8 @@
 		44038BDC1C92767000ADD412 /* Eyeball */ = {
 			isa = PBXGroup;
 			children = (
+				441B58F61C966B59009771A0 /* MainMenuScene.h */,
+				441B58F71C966B66009771A0 /* MainMenuScene.m */,
 				44038BE31C92767000ADD412 /* GameScene.h */,
 				44038BE41C92767000ADD412 /* GameScene.m */,
 				44038C2D1C93412B00ADD412 /* Cursor.h */,
@@ -338,6 +343,7 @@
 			files = (
 				44038C171C9277E900ADD412 /* Constants.m in Sources */,
 				44038C261C9317FB00ADD412 /* Convergence.m in Sources */,
+				441B58F81C966B66009771A0 /* MainMenuScene.m in Sources */,
 				44038C2C1C93184300ADD412 /* TriangleCenter.m in Sources */,
 				441B58F51C964093009771A0 /* Stopwatch.m in Sources */,
 				44038C201C9317C100ADD412 /* BisectAngle.m in Sources */,

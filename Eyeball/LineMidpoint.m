@@ -79,6 +79,7 @@
 - ( void ) showActual {
 	[ self addChild: m_cursor ];
 	[ self addChild: m_actualLine ];
+	[ m_prompt removeFromParent ];
 }
 
 @end

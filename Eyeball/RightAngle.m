@@ -70,6 +70,7 @@
 
 - ( void ) showActual {
 	[ self addChild: m_actualShape ];
+	[ m_prompt removeFromParent ];
 }
 
 - ( CGFloat ) errorMargin {

@@ -80,6 +80,7 @@
 
 - ( void ) showActual {
 	[ self addChild: m_actualLine ];
+	[ m_prompt removeFromParent ];
 }
 
 - ( CGFloat ) errorMargin {

@@ -103,6 +103,7 @@
 - ( void ) showActual {
 	[ self addChild: m_actualShape ];
 	[ self addChild: m_cursor ];
+	[ m_prompt removeFromParent ];
 }
 
 @end

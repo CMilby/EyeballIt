@@ -15,6 +15,8 @@
 @interface StopWatch : NSObject {
 	NSTimer *m_timer;
 	NSDate *m_startDate;
+	NSInteger m_secondsAlreadyRun;
+	NSString *m_timeString;
 }
 
 - ( id ) init;
@@ -23,7 +25,7 @@
 
 - ( void ) stop;
 
-- ( void ) pause;
+- ( NSString* ) timeString;
 
 @end
 
