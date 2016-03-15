@@ -6,7 +6,7 @@
 //  Copyright (c) 2016 Craig Milby. All rights reserved.
 //
 
-#import <SpriteKit/SpriteKit.h>
+#import "Constants.h"
 
 @interface GameScene : SKScene {
 	CGPoint m_firstTouch;

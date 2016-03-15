@@ -31,6 +31,7 @@
 		441B58F81C966B66009771A0 /* MainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 441B58F71C966B66009771A0 /* MainMenuScene.m */; };
 		441B58FA1C9724DB009771A0 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 441B58F91C9724DB009771A0 /* GameKit.framework */; };
 		441B58FD1C972F11009771A0 /* GameDoneScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 441B58FC1C972F11009771A0 /* GameDoneScene.m */; };
+		441B59001C9734AD009771A0 /* HowToPlayScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 441B58FF1C9734AD009771A0 /* HowToPlayScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,8 @@
 		441B58F91C9724DB009771A0 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		441B58FB1C972F09009771A0 /* GameDoneScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameDoneScene.h; sourceTree = "<group>"; };
 		441B58FC1C972F11009771A0 /* GameDoneScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameDoneScene.m; sourceTree = "<group>"; };
+		441B58FE1C9734A5009771A0 /* HowToPlayScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HowToPlayScene.h; sourceTree = "<group>"; };
+		441B58FF1C9734AD009771A0 /* HowToPlayScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HowToPlayScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +155,8 @@
 			children = (
 				441B58F61C966B59009771A0 /* MainMenuScene.h */,
 				441B58F71C966B66009771A0 /* MainMenuScene.m */,
+				441B58FE1C9734A5009771A0 /* HowToPlayScene.h */,
+				441B58FF1C9734AD009771A0 /* HowToPlayScene.m */,
 				441B58FB1C972F09009771A0 /* GameDoneScene.h */,
 				441B58FC1C972F11009771A0 /* GameDoneScene.m */,
 				44038BE31C92767000ADD412 /* GameScene.h */,
@@ -357,6 +362,7 @@
 			files = (
 				44038C171C9277E900ADD412 /* Constants.m in Sources */,
 				44038C261C9317FB00ADD412 /* Convergence.m in Sources */,
+				441B59001C9734AD009771A0 /* HowToPlayScene.m in Sources */,
 				441B58F81C966B66009771A0 /* MainMenuScene.m in Sources */,
 				44038C2C1C93184300ADD412 /* TriangleCenter.m in Sources */,
 				441B58F51C964093009771A0 /* Stopwatch.m in Sources */,
@@ -517,6 +523,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.cmilby.Eyeball;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -531,6 +538,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.cmilby.Eyeball;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

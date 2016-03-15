@@ -15,7 +15,7 @@
 	
 }
 
-- ( id ) initWithSize: ( CGSize ) size withTime: ( NSString* ) time withError: ( CGFloat ) error;
+- ( id ) initWithSize: ( CGSize ) size withTime: ( NSString* ) time withTotalError: ( CGFloat ) totalError withErrors: ( NSMutableArray<NSNumber*>* ) errors bannerHeight: ( CGFloat ) bannerHeight;
 
 @end
 

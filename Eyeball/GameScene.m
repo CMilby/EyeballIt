@@ -10,9 +10,9 @@
 
 #import "BisectAngle.h"
 #import "Circle.h"
-#import "Constants.h"
 #import "Convergence.h"
 #import "Cursor.h"
+#import "GameDoneScene.h"
 #import "LineMidpoint.h"
 #import "Parallelogram.h"
 #import "RightAngle.h"
@@ -26,8 +26,10 @@
 	SKLabelNode *m_nextLevel;
 	SKSpriteNode *m_toNext;
 	
-	CGFloat m_avgError;
-	CGFloat m_time;
+	CGFloat m_bannerHeight;
+	
+	CGFloat m_totalError;
+	NSMutableArray<NSNumber*> *m_errors;
 	StopWatch *m_stopwatch;
 	
 	BOOL m_done;
@@ -88,14 +90,16 @@
 		
 		m_stopwatch = [ [ StopWatch alloc ] init ];
 		
-		m_avgError = 0.0f;
-		m_time = 0.0f;
-		
 		m_nextLevel = [ SKLabelNode labelNodeWithFontNamed: GAME_FONT ];
 		m_nextLevel.fontSize = FONT_SIZE * height;
 		m_nextLevel.fontColor = [ SKColor whiteColor ];
 		m_nextLevel.text = @"Tap to go to next level";
-		m_nextLevel.position = CGPointMake( width / 2, height - ( ( FONT_SIZE * height ) * 1.5f ) );
+		m_nextLevel.position = CGPointMake( width / 2, height - ( ( FONT_SIZE * height ) * 1.5f ) - bannerHeight );
+		
+		m_totalError = 0.0f;
+		m_errors = [ [ NSMutableArray alloc ] initWithCapacity: [ m_levels count ] ];
+		
+		m_bannerHeight = bannerHeight;
 	}
 	return self;
 }
@@ -114,15 +118,19 @@
 		return;
 	}
 	
-	if ( [ m_nextLevel parent ] != nil ) {
-		[ m_nextLevel removeFromParent ];
+	if ( m_currentLevel < [ m_levels count ] - 1 ) {
+		if ( [ m_nextLevel parent ] != nil ) {
+			[ m_nextLevel removeFromParent ];
+		}
+		
+		m_done = false;
+		[ [ m_levels objectAtIndex: m_currentLevel ] removeFromParent ];
+		m_currentLevel++;
+		[ m_cursor setPosition: [ [ m_levels objectAtIndex: m_currentLevel ] point ] ];
+		[ self addChild: [ m_levels objectAtIndex: m_currentLevel ] ];
+	} else {
+		[ self.view presentScene: [ [ GameDoneScene alloc ] initWithSize: self.size withTime: [ m_stopwatch timeString ] withTotalError: m_totalError withErrors: m_errors bannerHeight: m_bannerHeight ] transition: [ SKTransition fadeWithColor: [ SKColor blackColor ] duration: 0.5f ] ];
 	}
-	
-	m_done = false;
-	[ [ m_levels objectAtIndex: m_currentLevel ] removeFromParent ];
-	m_currentLevel++;
-	[ m_cursor setPosition: [ [ m_levels objectAtIndex: m_currentLevel ] point ] ];
-	[ self addChild: [ m_levels objectAtIndex: m_currentLevel ] ];
 }
 
 - ( void ) handlePan: ( UIPanGestureRecognizer* ) sender {
@@ -135,16 +143,23 @@
 	// location = CGPointMake( location.x / 2, location.y / 2 );
 	
 	if ( sender.state == UIGestureRecognizerStateEnded ) {
-		[ [ m_levels objectAtIndex: m_currentLevel ] showActual ];
-		m_avgError += [ [ m_levels objectAtIndex: m_currentLevel ] errorMargin ];
-		m_averageError.text = [ NSString stringWithFormat: @"Average Error: %.02f", m_avgError / ( m_currentLevel + 1 ) ];
-		m_done = true;
 		[ m_stopwatch stop ];
+		[ [ m_levels objectAtIndex: m_currentLevel ] showActual ];
+		m_totalError += [ [ m_levels objectAtIndex: m_currentLevel ] errorMargin ];
+		m_averageError.text = [ NSString stringWithFormat: @"Average Error: %.02f", m_totalError / ( m_currentLevel + 1 ) ];
+		[ m_errors addObject: [ NSNumber numberWithFloat: [ [ m_levels objectAtIndex: m_currentLevel ] errorMargin ] ] ];
+		m_done = true;
+		
+		if ( m_currentLevel == 6 ) {
+			m_nextLevel.text = @"Tap to see game details";
+		}
 		[ self addChild: m_nextLevel ];
+		return;
 	} else if ( sender.state == UIGestureRecognizerStateBegan ) {
 		m_firstTouch = CGPointMake( location.x, location.y );
 		m_oldLoc = m_cursor.position;
 		[ m_stopwatch start ];
+		return;
 	}
 	
 	CGPoint diff = CGPointMake( location.x - m_firstTouch.x, location.y - m_firstTouch.y );
