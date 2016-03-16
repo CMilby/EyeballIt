@@ -32,6 +32,7 @@
 		441B58FA1C9724DB009771A0 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 441B58F91C9724DB009771A0 /* GameKit.framework */; };
 		441B58FD1C972F11009771A0 /* GameDoneScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 441B58FC1C972F11009771A0 /* GameDoneScene.m */; };
 		441B59001C9734AD009771A0 /* HowToPlayScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 441B58FF1C9734AD009771A0 /* HowToPlayScene.m */; };
+		446CB51D1C983A4F00460146 /* GameData.m in Sources */ = {isa = PBXBuildFile; fileRef = 446CB51C1C983A4F00460146 /* GameData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,8 @@
 		441B58FC1C972F11009771A0 /* GameDoneScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameDoneScene.m; sourceTree = "<group>"; };
 		441B58FE1C9734A5009771A0 /* HowToPlayScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HowToPlayScene.h; sourceTree = "<group>"; };
 		441B58FF1C9734AD009771A0 /* HowToPlayScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HowToPlayScene.m; sourceTree = "<group>"; };
+		446CB51B1C983A4900460146 /* GameData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameData.h; sourceTree = "<group>"; };
+		446CB51C1C983A4F00460146 /* GameData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +184,8 @@
 				44038C311C9352FD00ADD412 /* Level.m */,
 				441B58F31C96408D009771A0 /* Stopwatch.h */,
 				441B58F41C964093009771A0 /* Stopwatch.m */,
+				446CB51B1C983A4900460146 /* GameData.h */,
+				446CB51C1C983A4F00460146 /* GameData.m */,
 				44038C151C9277E200ADD412 /* Constants.h */,
 				44038C161C9277E900ADD412 /* Constants.m */,
 				44038BE81C92767000ADD412 /* GameViewController.h */,
@@ -375,6 +380,7 @@
 				44038C1A1C92FE1100ADD412 /* Circle.m in Sources */,
 				44038C2F1C93413600ADD412 /* Cursor.m in Sources */,
 				44038BE51C92767000ADD412 /* GameScene.m in Sources */,
+				446CB51D1C983A4F00460146 /* GameData.m in Sources */,
 				44038C321C9352FD00ADD412 /* Level.m in Sources */,
 				441B58FD1C972F11009771A0 /* GameDoneScene.m in Sources */,
 				44038BDF1C92767000ADD412 /* main.m in Sources */,

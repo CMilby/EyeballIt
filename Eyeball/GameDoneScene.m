@@ -8,6 +8,7 @@
 
 #import "GameDoneScene.h"
 
+#import "GameData.h"
 #import "GameScene.h"
 #import "MainMenuScene.h"
 
@@ -21,6 +22,59 @@
 - ( id ) initWithSize: ( CGSize ) size withTime: ( NSString* ) time withTotalError: ( CGFloat ) totalError withErrors: ( NSMutableArray<NSNumber*>* ) errors bannerHeight: ( CGFloat ) bannerHeight {
 	if ( self = [ super initWithSize: size ] ) {
 		[ self setBackgroundColor: [ SKColor blackColor ] ];
+		
+		NSArray<NSString*> *minsSecs = [ time componentsSeparatedByString: @":" ];
+		NSArray<NSString*> *secsMillis = [ [ minsSecs objectAtIndex: 1 ] componentsSeparatedByString: @"." ];
+		
+		int mins = [ [ minsSecs objectAtIndex: 0 ] intValue ];
+		int seconds = [ [ secsMillis objectAtIndex: 0 ] intValue ];
+		int millis = [ [ secsMillis objectAtIndex: 1 ] intValue ];
+		float timeFloat = ( mins * 60 ) + seconds + ( millis / 10.0f );
+		
+		// We will get and set GameData here
+		GameData *data = [ GameData sharedGameData ];
+		data.parallelogramClosest = MIN( [ [ errors objectAtIndex: 0 ] floatValue ], data.parallelogramClosest );
+		data.parallelogramTotalError += [ [ errors objectAtIndex: 0 ] floatValue ];
+		
+		data.midpointCloseset = MIN( [ [ errors objectAtIndex: 1 ] floatValue ], data.midpointCloseset );
+		data.midpointTotalError += [ [ errors objectAtIndex: 1 ] floatValue ];
+		
+		data.bisectCloseset = MIN( [ [ errors objectAtIndex: 2 ] floatValue ], data.bisectCloseset );
+		data.bisectTotalError += [ [ errors objectAtIndex: 2 ] floatValue ];
+		
+		data.triangleCloseset = MIN( [ [ errors objectAtIndex: 3 ] floatValue ], data.triangleCloseset );
+		data.triangleTotalError += [ [ errors objectAtIndex: 3 ] floatValue ];
+		
+		data.circleClosest = MIN( [ [ errors objectAtIndex: 4 ] floatValue ], data.circleClosest );
+		data.circleTotalError += [ [ errors objectAtIndex: 4 ] floatValue ];
+		
+		data.rightCloseset = MIN( [ [ errors objectAtIndex: 5 ] floatValue ], data.rightCloseset );
+		data.rightTotalError += [ [ errors objectAtIndex: 5 ] floatValue ];
+		
+		data.convergenceCloseset = MIN( [ [ errors objectAtIndex: 6 ] floatValue ], data.convergenceCloseset );
+		data.convergenceTotalError += [ [ errors objectAtIndex: 6 ] floatValue ];
+		
+		// Time fastest should only change if you
+		// get a lower average error
+		// It's fastest time with the lowest errror K?
+		if ( data.avgErrorBest > ( totalError / 7.0f ) ) {
+			data.avgErrorBest = totalError / 7.0f;
+			data.timeFastest = timeFloat;
+		}
+		
+		data.avgErrorWorst = MAX( totalError / 7.0f, data.avgErrorWorst );
+		data.avgErrorTotal += ( totalError / 7.0f );
+		
+		data.totalErrorBest = MIN( totalError, data.totalErrorBest );
+		data.totalErrorWorst = MAX( totalError, data.totalErrorWorst );
+		data.totalErrorTotal += totalError;
+		
+		data.timeSlowest = MAX( timeFloat, data.timeSlowest );
+		data.timeTotal += timeFloat;
+		
+		data.gamesPlayed++;
+		
+		[ data save ];
 		
 		CGFloat width = [ UIScreen mainScreen ].bounds.size.width;
 		CGFloat height = [ UIScreen mainScreen ].bounds.size.height;
@@ -149,6 +203,66 @@
 		totalTimeLbl.text = time;
 		totalTimeLbl.position = CGPointMake( totalErrorLbl.position.x, timeLbl.position.y );
 		[ self addChild: totalTimeLbl ];
+		
+		// Now we need to add all the best scores!!!
+		
+		SKLabelNode *parallelBest = [ SKLabelNode labelNodeWithFontNamed: GAME_FONT ];
+		parallelBest.fontSize = height * FONT_SIZE;
+		parallelBest.fontColor = [ SKColor whiteColor ];
+		parallelBest.text = [ NSString stringWithFormat: @"%.02f", data.parallelogramClosest ];
+		parallelBest.position = CGPointMake( bestLabel.position.x, parallel.position.y );
+		[ self addChild: parallelBest ];
+		
+		SKLabelNode *midpointBest = [ parallelBest copy ];
+		midpointBest.text = [ NSString stringWithFormat: @"%.02f", data.midpointCloseset ];
+		midpointBest.position = CGPointMake( midpointBest.position.x, midpointBest.position.y - diff );
+		[ self addChild: midpointBest ];
+		
+		SKLabelNode *bisectBest = [ midpointBest copy ];
+		bisectBest.text = [ NSString stringWithFormat: @"%.02f", data.bisectCloseset ];
+		bisectBest.position = CGPointMake( bisectBest.position.x, bisectBest.position.y - diff );
+		[ self addChild: bisectBest ];
+		
+		SKLabelNode *triangleBest = [ bisectBest copy ];
+		triangleBest.text = [ NSString stringWithFormat: @"%.02f", data.triangleCloseset ];
+		triangleBest.position = CGPointMake( triangleBest.position.x, triangleBest.position.y - diff );
+		[ self addChild: triangleBest ];
+		
+		SKLabelNode *circleBest = [ triangleBest copy ];
+		circleBest.text = [ NSString stringWithFormat: @"%.02f", data.circleClosest ];
+		circleBest.position = CGPointMake( circleBest.position.x, circleBest.position.y - diff );
+		[ self addChild: circleBest ];
+		
+		SKLabelNode *rightBest = [ circleBest copy ];
+		rightBest.text = [ NSString stringWithFormat: @"%.02f", data.rightCloseset ];
+		rightBest.position = CGPointMake( rightBest.position.x, rightBest.position.y - diff );
+		[ self addChild: rightBest ];
+		
+		SKLabelNode *convergeBest = [ rightBest copy ];
+		convergeBest.text = [ NSString stringWithFormat: @"%.02f", data.convergenceCloseset ];
+		convergeBest.position = CGPointMake( convergeBest.position.x, convergeBest.position.y - diff );
+		[ self addChild: convergeBest ];
+		
+		SKLabelNode *avgBest = [ convergeBest copy ];
+		avgBest.text = [ NSString stringWithFormat: @"%.02f", data.avgErrorBest ];
+		avgBest.position = CGPointMake( avgBest.position.x, avgBest.position.y - diff * 2 );
+		[ self addChild: avgBest ];
+		
+		SKLabelNode *totalBest = [ avgBest copy ];
+		totalBest.text = [ NSString stringWithFormat: @"%.02f", data.totalErrorBest ];
+		totalBest.position = CGPointMake( totalBest.position.x, totalBest.position.y - diff );
+		[ self addChild: totalBest ];
+
+		NSString *fastTimeStr = [ NSString stringWithFormat: @"%f", data.timeFastest ];
+		NSArray<NSString*> *split = [ fastTimeStr componentsSeparatedByString: @"." ];
+		int fastMins   = [ [ split objectAtIndex: 0 ] intValue ] / 60;
+		int fastSecs   = [ [ split objectAtIndex: 0 ] intValue ] % 60;
+		int fastMillis = [ [ split objectAtIndex: 1 ] intValue ] / 100000;
+		
+		SKLabelNode *timeBest = [ totalBest copy ];
+		timeBest.text = [ NSString stringWithFormat: @"%i:%02i.%i", fastMins, fastSecs, fastMillis ];
+		timeBest.position = CGPointMake( timeBest.position.x, timeBest.position.y - diff );
+		[ self addChild: timeBest ];
 		
 		m_bannerHeight = bannerHeight;
 	}
