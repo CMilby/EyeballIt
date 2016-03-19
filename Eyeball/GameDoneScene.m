@@ -23,14 +23,6 @@
 	if ( self = [ super initWithSize: size ] ) {
 		[ self setBackgroundColor: [ SKColor blackColor ] ];
 		
-		NSArray<NSString*> *minsSecs = [ time componentsSeparatedByString: @":" ];
-		NSArray<NSString*> *secsMillis = [ [ minsSecs objectAtIndex: 1 ] componentsSeparatedByString: @"." ];
-		
-		int mins = [ [ minsSecs objectAtIndex: 0 ] intValue ];
-		int seconds = [ [ secsMillis objectAtIndex: 0 ] intValue ];
-		int millis = [ [ secsMillis objectAtIndex: 1 ] intValue ];
-		float timeFloat = ( mins * 60 ) + seconds + ( millis / 10.0f );
-		
 		// We will get and set GameData here
 		GameData *data = [ GameData sharedGameData ];
 		data.parallelogramClosest = MIN( [ [ errors objectAtIndex: 0 ] floatValue ], data.parallelogramClosest );
@@ -59,7 +51,7 @@
 		// It's fastest time with the lowest errror K?
 		if ( data.avgErrorBest > ( totalError / 7.0f ) ) {
 			data.avgErrorBest = totalError / 7.0f;
-			data.timeFastest = timeFloat;
+			data.timeFastest = [ time floatValue ];
 		}
 		
 		data.avgErrorWorst = MAX( totalError / 7.0f, data.avgErrorWorst );
@@ -69,8 +61,8 @@
 		data.totalErrorWorst = MAX( totalError, data.totalErrorWorst );
 		data.totalErrorTotal += totalError;
 		
-		data.timeSlowest = MAX( timeFloat, data.timeSlowest );
-		data.timeTotal += timeFloat;
+		data.timeSlowest = MAX( [ time floatValue ], data.timeSlowest );
+		data.timeTotal += [ time floatValue ];
 		
 		data.gamesPlayed++;
 		
@@ -252,15 +244,9 @@
 		totalBest.text = [ NSString stringWithFormat: @"%.02f", data.totalErrorBest ];
 		totalBest.position = CGPointMake( totalBest.position.x, totalBest.position.y - diff );
 		[ self addChild: totalBest ];
-
-		NSString *fastTimeStr = [ NSString stringWithFormat: @"%f", data.timeFastest ];
-		NSArray<NSString*> *split = [ fastTimeStr componentsSeparatedByString: @"." ];
-		int fastMins   = [ [ split objectAtIndex: 0 ] intValue ] / 60;
-		int fastSecs   = [ [ split objectAtIndex: 0 ] intValue ] % 60;
-		int fastMillis = [ [ split objectAtIndex: 1 ] intValue ] / 100000;
 		
 		SKLabelNode *timeBest = [ totalBest copy ];
-		timeBest.text = [ NSString stringWithFormat: @"%i:%02i.%i", fastMins, fastSecs, fastMillis ];
+		timeBest.text = [ NSString stringWithFormat: @"%.01f", data.timeFastest ];
 		timeBest.position = CGPointMake( timeBest.position.x, timeBest.position.y - diff );
 		[ self addChild: timeBest ];
 		

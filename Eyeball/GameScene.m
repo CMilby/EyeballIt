@@ -81,7 +81,7 @@
 		[ self addChild: m_averageError ];
 		
 		m_timeTaken = [ SKLabelNode labelNodeWithFontNamed: GAME_FONT ];
-		m_timeTaken.text = @"Time Taken: 0:0.00";
+		m_timeTaken.text = @"Time Taken: 0.0";
 		m_timeTaken.color = [ SKColor whiteColor ];
 		m_timeTaken.fontSize = height * FONT_SIZE;
 		m_timeTaken.position = CGPointMake( width * FONT_SIZE, ( ( height * FONT_SIZE ) * 2 ) );

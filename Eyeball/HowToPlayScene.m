@@ -24,6 +24,13 @@
 		CGFloat width = [ UIScreen mainScreen ].bounds.size.width;
 		CGFloat height = [ UIScreen mainScreen ].bounds.size.height;
 		
+		SKLabelNode *gameTitle = [ SKLabelNode labelNodeWithFontNamed: GAME_FONT ];
+		gameTitle.color = [ SKColor whiteColor ];
+		gameTitle.fontSize = 64.0f;
+		gameTitle.text = @"Eyeball It";
+		gameTitle.position = CGPointMake( width / 2, height / 4 * 3 );
+		[ self addChild: gameTitle ];
+		
 		m_backButtonRect = CGRectMake( 10.0f, 10.0f, width / 2 - 20, height / 10 );
 		SKShapeNode *backBut = [ SKShapeNode shapeNodeWithRect: m_backButtonRect ];
 		backBut.lineWidth = 2.0f;
@@ -37,20 +44,7 @@
 		backLbl.position = CGPointMake( CGRectGetMidX( m_backButtonRect ), CGRectGetMidY( m_backButtonRect ) - ( height * FONT_SIZE / 3 ) );
 		[ self addChild: backLbl ];
 		
-		m_nextButtonRect = CGRectMake( width / 2 + 10, 10.0f, width / 2 - 20, height / 10 );
-		SKShapeNode *nextBut = [ SKShapeNode shapeNodeWithRect: m_nextButtonRect ];
-		nextBut.lineWidth = 2.0f;
-		nextBut.strokeColor = [ SKColor whiteColor ];
-		[ self addChild: nextBut ];
-		
-		SKLabelNode *nextLbl = [ SKLabelNode labelNodeWithFontNamed: GAME_FONT ];
-		nextLbl.fontSize = height * FONT_SIZE;
-		nextLbl.fontColor = [ SKColor whiteColor ];
-		nextLbl.text = @"Next";
-		nextLbl.position = CGPointMake( CGRectGetMidX( m_nextButtonRect ), CGRectGetMidY( m_nextButtonRect ) - ( height * FONT_SIZE / 3 ) );
-		[ self addChild: nextLbl ];
-		
-		SKNode *text = [ self getWrappingTextNode: @"This is an example of wrapping text that I hope will actually wrap. I guess we will find out" width: width height: height ];
+		SKNode *text = [ self getWrappingTextNode: @"The purpose of the game is make the specified shape as accurately as you possibly can. In order to tdo this, press your finger anywhere on the screen. Then, without lifting you finger, move it around to change the shapes shape. In order to get the best score, you want to make the shape as close to the actual shope as possible while doing so as quickly as possible. Good luck!" width: width * 0.8 height: height ];
 		text.position = CGPointMake( width / 2, height / 2);
 		[ self addChild: text ];
 	}
@@ -68,9 +62,9 @@
 
 	if ( CGRectContainsPoint( m_backButtonRect, location ) ) {
 		[ self.view presentScene: m_mainMenu transition: [ SKTransition fadeWithColor: [ SKColor blackColor ] duration: 0.5f ] ];
-	} else if ( CGRectContainsPoint( m_nextButtonRect, location ) ) {
+	}// else if ( CGRectContainsPoint( m_nextButtonRect, location ) ) {
 		
-	}
+	// }
 }
 
 - ( SKNode* ) getWrappingTextNode: ( NSString* ) text width: ( CGFloat ) width height: ( CGFloat ) height {
@@ -82,6 +76,7 @@
 	NSMutableParagraphStyle *paragraphStyle = [ [ NSParagraphStyle defaultParagraphStyle ] mutableCopy ];
 	paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
 	paragraphStyle.alignment = NSTextAlignmentJustified;
+	paragraphStyle.firstLineHeadIndent = 0.5f;
 	
 	UIFont *font = [ UIFont fontWithName: GAME_FONT size: FONT_SIZE * height ];
 

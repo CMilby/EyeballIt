@@ -40,9 +40,13 @@
 	timeInterval += m_secondsAlreadyRun;
 	NSDate *timerDate = [ NSDate dateWithTimeIntervalSince1970: timeInterval ];
 	NSDateFormatter *dateFormatter = [ [ NSDateFormatter alloc ] init ];
+	
 	[ dateFormatter setDateFormat: @"m:ss.S" ];
 	[ dateFormatter setTimeZone: [ NSTimeZone timeZoneForSecondsFromGMT: 0.0 ] ];
-	m_timeString = [ dateFormatter stringFromDate: timerDate ];
+	NSArray<NSString*> *dateArray = [ [ dateFormatter stringFromDate: timerDate ] componentsSeparatedByString: @":" ];
+	NSArray<NSString*> *minArray = [ [ dateArray objectAtIndex: 1 ] componentsSeparatedByString: @"." ];
+	int addMins = [ [ dateArray objectAtIndex: 0 ] intValue ] * 60;
+	m_timeString = [ NSString stringWithFormat: @"%i.%i", ( addMins + [ [ minArray objectAtIndex: 0 ] intValue ] ), [ [ minArray objectAtIndex: 1 ] intValue ] ];
 }
 
 - ( NSString* ) timeString {
