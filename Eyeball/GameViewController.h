@@ -11,12 +11,15 @@
 #import <SpriteKit/SpriteKit.h>
 #import <UIKit/UIKit.h>
 
-@interface GameViewController : UIViewController<ADBannerViewDelegate> {
-	NSString *m_leaderboardIdentifier;
+@interface GameViewController : UIViewController<ADBannerViewDelegate, GKGameCenterControllerDelegate> {
 	BOOL m_gameCenterEnabled;
 	ADBannerView *m_adView;
 }
 
 - ( void ) authenticateLocalPlayer;
+
+- ( void ) showLeaderboardAndAchievements: ( BOOL ) shouldShowLeaderboard;
+
+- ( BOOL ) gameCenterEnabled;
 
 @end

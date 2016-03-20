@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Eyeball It" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enH-iG-QpZ">
-                                <rect key="frame" x="219" y="289" width="163" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Just About There" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enH-iG-QpZ">
+                                <rect key="frame" x="166.5" y="284.5" width="267" height="30.5"/>
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="30"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -26,8 +26,8 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="enH-iG-QpZ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="LRK-w2-unA"/>
-                            <constraint firstItem="enH-iG-QpZ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="XyV-dP-wKE"/>
+                            <constraint firstItem="enH-iG-QpZ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="4Oc-oh-iX2"/>
+                            <constraint firstItem="enH-iG-QpZ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="5gc-j6-leh"/>
                         </constraints>
                     </view>
                 </viewController>

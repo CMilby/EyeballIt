@@ -37,9 +37,11 @@
 	
 	NSMutableArray<Level*> *m_levels;
 	int m_currentLevel;
+	
+	GameViewController *m_gvController;
 }
 
-- ( id ) initWithSize: ( CGSize ) size withBannerHeight: ( CGFloat ) bannerHeight {
+- ( id ) initWithSize: ( CGSize ) size withBannerHeight: ( CGFloat ) bannerHeight withGameView: ( GameViewController* ) viewController {
 	if ( self = [ super initWithSize: size ] ) {
 		[ self setBackgroundColor: [ SKColor blackColor ] ];
 		
@@ -100,6 +102,7 @@
 		m_errors = [ [ NSMutableArray alloc ] initWithCapacity: [ m_levels count ] ];
 		
 		m_bannerHeight = bannerHeight;
+		m_gvController = viewController;
 	}
 	return self;
 }
@@ -129,7 +132,7 @@
 		[ m_cursor setPosition: [ [ m_levels objectAtIndex: m_currentLevel ] point ] ];
 		[ self addChild: [ m_levels objectAtIndex: m_currentLevel ] ];
 	} else {
-		[ self.view presentScene: [ [ GameDoneScene alloc ] initWithSize: self.size withTime: [ m_stopwatch timeString ] withTotalError: m_totalError withErrors: m_errors bannerHeight: m_bannerHeight ] transition: [ SKTransition fadeWithColor: [ SKColor blackColor ] duration: 0.5f ] ];
+		[ self.view presentScene: [ [ GameDoneScene alloc ] initWithSize: self.size withTime: [ m_stopwatch timeString ] withTotalError: m_totalError withErrors: m_errors bannerHeight: m_bannerHeight withGameView: m_gvController ] transition: [ SKTransition fadeWithColor: [ SKColor blackColor ] duration: 0.5f ] ];
 	}
 }
 

@@ -8,11 +8,13 @@
 
 #import "Constants.h"
 
+#import "GameViewController.h"
+
 @interface GameScene : SKScene {
 	CGPoint m_firstTouch;
 	CGPoint m_oldLoc;
 }
 
-- ( id ) initWithSize: ( CGSize ) size withBannerHeight: ( CGFloat ) bannerHeight;
+- ( id ) initWithSize: ( CGSize ) size withBannerHeight: ( CGFloat ) bannerHeight withGameView: ( GameViewController* ) viewController;
 
 @end

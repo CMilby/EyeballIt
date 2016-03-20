@@ -7,6 +7,8 @@
 //
 
 #import "GameViewController.h"
+
+#import "Constants.h"
 #import "MainMenuScene.h"
 
 @implementation GameViewController
@@ -29,7 +31,7 @@
 		[ self authenticateLocalPlayer ];
 		m_adView = [ [ ADBannerView alloc ] initWithFrame: CGRectZero ];
 		
-		MainMenuScene *scene = [ [ MainMenuScene alloc ] initWithSize: skView.bounds.size withBannerHeight: m_adView.bounds.size.height ];
+		MainMenuScene *scene = [ [ MainMenuScene alloc ] initWithSize: skView.bounds.size withBannerHeight: m_adView.bounds.size.height withGameView: self ];
 		scene.scaleMode = SKSceneScaleModeAspectFill;
 		
 		[ skView presentScene:scene ];
@@ -46,21 +48,34 @@
 		} else {
 			if ( [ GKLocalPlayer localPlayer ].authenticated ) {
 				m_gameCenterEnabled = YES;
-				
-				// Get the default leaderboard identifier.
-				[ [ GKLocalPlayer localPlayer ] loadDefaultLeaderboardIdentifierWithCompletionHandler: ^( NSString *leaderboardIdentifier, NSError *error ) {
-					
-					if ( error != nil ) {
-						NSLog( @"%@", [ error localizedDescription ] );
-					} else {
-						m_leaderboardIdentifier = leaderboardIdentifier;
-					}
-				}];
 			} else {
 				m_gameCenterEnabled = NO;
 			}
 		}
 	};
+}
+
+- ( void ) showLeaderboardAndAchievements: ( BOOL ) shouldShowLeaderboard {
+	GKGameCenterViewController *gcViewController = [ [ GKGameCenterViewController alloc ] init ];
+	
+	gcViewController.gameCenterDelegate = self;
+ 
+	if ( shouldShowLeaderboard ) {
+		gcViewController.viewState = GKGameCenterViewControllerStateLeaderboards;
+		gcViewController.leaderboardIdentifier = ScoreLeaderboardID;
+	} else {
+		gcViewController.viewState = GKGameCenterViewControllerStateAchievements;
+	}
+	
+	[ self presentViewController: gcViewController animated: YES completion: nil ];
+}
+
+- ( void ) gameCenterViewControllerDidFinish: ( GKGameCenterViewController* ) gameCenterViewController {
+	[ gameCenterViewController dismissViewControllerAnimated: YES completion: nil ];
+}
+
+- ( BOOL ) gameCenterEnabled {
+	return m_gameCenterEnabled;
 }
 
 - ( BOOL ) shouldAutorotate {

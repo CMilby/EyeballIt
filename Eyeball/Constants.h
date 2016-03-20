@@ -44,4 +44,8 @@ extern NSString* const GD_TIME_TOTAL;
 
 extern NSString* const GD_GAMES_PLAYED;
 
+extern NSString* const ScoreLeaderboardID;
+extern NSString* const FastestLeaderboardID;
+extern NSString* const CombinedLeaderboardID;
+
 #endif /* Constants_h */

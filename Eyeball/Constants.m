@@ -40,6 +40,9 @@ NSString* const GD_TIME_TOTAL = @"gd_time_total";
 
 NSString* const GD_GAMES_PLAYED = @"gd_games_played";
 
+NSString* const ScoreLeaderboardID = @"JAT_LowestAvgError";
+NSString* const FastestLeaderboardID = @"JAT_FastestTime";
+NSString* const CombinedLeaderboardID = @"JAT_LowScoreFastTime";
 
 
 

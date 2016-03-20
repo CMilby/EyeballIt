@@ -10,12 +10,13 @@
 #define __GAME_DONE_SCENE_H__
 
 #import "Constants.h"
+#import "GameViewController.h"
 
 @interface GameDoneScene : SKScene {
 	
 }
 
-- ( id ) initWithSize: ( CGSize ) size withTime: ( NSString* ) time withTotalError: ( CGFloat ) totalError withErrors: ( NSMutableArray<NSNumber*>* ) errors bannerHeight: ( CGFloat ) bannerHeight;
+- ( id ) initWithSize: ( CGSize ) size withTime: ( NSString* ) time withTotalError: ( CGFloat ) totalError withErrors: ( NSMutableArray<NSNumber*>* ) errors bannerHeight: ( CGFloat ) bannerHeight withGameView: ( GameViewController* ) viewController;
 
 @end
 

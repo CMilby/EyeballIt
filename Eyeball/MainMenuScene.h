@@ -10,12 +10,13 @@
 #define __MAIN_MENU_SCENE_H__
 
 #import "Constants.h"
+#import "GameViewController.h"
 
 @interface MainMenuScene : SKScene {
 	
 }
 
-- ( id ) initWithSize: ( CGSize ) size withBannerHeight: ( CGFloat ) bannerHeight;
+- ( id ) initWithSize: ( CGSize ) size withBannerHeight: ( CGFloat ) bannerHeight withGameView: ( GameViewController* ) viewController;
 
 @end
 

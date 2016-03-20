@@ -17,19 +17,22 @@
 	CGRect m_leaderboardButton;
 	
 	CGFloat m_bannerHeight;
+	
+	GameViewController *m_gvController;
 }
 
-- ( id ) initWithSize: ( CGSize ) size withBannerHeight: ( CGFloat ) bannerHeight {
+- ( id ) initWithSize: ( CGSize ) size withBannerHeight: ( CGFloat ) bannerHeight withGameView: ( GameViewController* ) viewController {
 	if ( self = [ super initWithSize: size ] ) {
 		[ self setBackgroundColor: [ SKColor blackColor ] ];
 		
 		CGFloat width = [ UIScreen mainScreen ].bounds.size.width;
 		CGFloat height = [ UIScreen mainScreen ].bounds.size.height;
 		
-		SKLabelNode *gameTitle = [ SKLabelNode labelNodeWithFontNamed: GAME_FONT ];
-		gameTitle.color = [ SKColor whiteColor ];
-		gameTitle.fontSize = 64.0f;
-		gameTitle.text = @"Eyeball It";
+		SKNode *gameTitle = [ self getWrappingTextNode: @"Just About There" width: width * 0.8 height: 800 ];
+		// SKLabelNode *gameTitle = [ SKLabelNode labelNodeWithFontNamed: GAME_FONT ];
+		// gameTitle.color = [ SKColor whiteColor ];
+		// gameTitle.fontSize = 50.0f;
+		// gameTitle.text = @"Just About There";
 		gameTitle.position = CGPointMake( width / 2, height / 4 * 3 );
 		[ self addChild: gameTitle ];
 		
@@ -73,6 +76,7 @@
 		[ self addChild: leaderboardTxt ];
 		
 		m_bannerHeight = bannerHeight;
+		m_gvController = viewController;
 	}
 	return self;
 }
@@ -87,12 +91,43 @@
 	location = CGPointMake( location.x, fabs( [ UIScreen mainScreen ].bounds.size.height - location.y ) );
 	
 	if ( CGRectContainsPoint( m_buttonRect, location ) ) {
-		[ self.view presentScene: [ [ GameScene alloc ] initWithSize: self.size withBannerHeight: m_bannerHeight ] transition: [ SKTransition fadeWithColor: [ SKColor blackColor ] duration: 0.5f ] ];
+		[ self.view presentScene: [ [ GameScene alloc ] initWithSize: self.size withBannerHeight: m_bannerHeight withGameView: m_gvController ] transition: [ SKTransition fadeWithColor: [ SKColor blackColor ] duration: 0.5f ] ];
 	} else if ( CGRectContainsPoint( m_htpRect, location ) ) {
 		[ self.view presentScene: [ [ HowToPlayScene alloc ] initWithSize: self.size mainMenu: self ] transition: [ SKTransition fadeWithColor: [ SKColor blackColor ] duration: 0.5f ] ];
 	} else if ( CGRectContainsPoint( m_leaderboardButton, location ) ) {
-		// Show leaderboards
+		if ( [ m_gvController gameCenterEnabled ] ) {
+			[ m_gvController showLeaderboardAndAchievements: YES ];
+		}
 	}
+}
+
+- ( SKNode* ) getWrappingTextNode: ( NSString* ) text width: ( CGFloat ) width height: ( CGFloat ) height {
+	UIImage *img = [ self drawText:text width: width height: height ];
+	return [ SKSpriteNode spriteNodeWithTexture: [ SKTexture textureWithImage:img ] ];
+}
+
+- ( UIImage* ) drawText: ( NSString* ) text width: ( CGFloat ) width height: ( CGFloat ) height {
+	NSMutableParagraphStyle *paragraphStyle = [ [ NSParagraphStyle defaultParagraphStyle ] mutableCopy ];
+	paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
+	paragraphStyle.alignment = NSTextAlignmentCenter;
+	paragraphStyle.firstLineHeadIndent = 0.5f;
+	
+	UIFont *font = [ UIFont fontWithName: GAME_FONT size: 50.0f ];
+	
+	UIColor *color = [ SKColor whiteColor ];
+	NSDictionary *att = @{ NSForegroundColorAttributeName: color,  NSFontAttributeName: font, NSParagraphStyleAttributeName: paragraphStyle };
+	
+	//using 800 here but make sure this height is greater than the potential height of the text (unless you want a max-height I guess but I did not test max-height)
+	CGRect rect =  [ text boundingRectWithSize:CGSizeMake( width, 800 ) options: NSStringDrawingUsesLineFragmentOrigin attributes: att context: nil ];
+	
+	UIGraphicsBeginImageContextWithOptions( rect.size, NO, 0.0f );
+	
+	[ text drawInRect: rect withAttributes:att ];
+	
+	UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+	UIGraphicsEndImageContext();
+	
+	return newImage;
 }
 
 @end
