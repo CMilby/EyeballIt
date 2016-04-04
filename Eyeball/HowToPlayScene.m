@@ -45,7 +45,7 @@
 		backLbl.position = CGPointMake( CGRectGetMidX( m_backButtonRect ), CGRectGetMidY( m_backButtonRect ) - ( height * FONT_SIZE / 3 ) );
 		[ self addChild: backLbl ];
 		
-		SKNode *text = [ self getWrappingTextNode: @"The purpose of the game is make the specified shape as accurately as you possibly can. In order to tdo this, press your finger anywhere on the screen. Then, without lifting you finger, move it around to change the shapes shape. In order to get the best score, you want to make the shape as close to the actual shope as possible while doing so as quickly as possible. Good luck!" width: width * 0.8 height: height ];
+		SKNode *text = [ self getWrappingTextNode: @"The purpose of the game is make the specified shape as accurately as you possibly can. In order to do this, press your finger anywhere on the screen. Then, without lifting your finger, move it around to change the shapes shape. In order to get the best score, you want to make the shape as close to the actual shape as possible while doing so as quickly as possible. Good luck!" width: width * 0.8 height: height ];
 		text.position = CGPointMake( width / 2, height / 3 * 1.25 );
 		[ self addChild: text ];
 	}
